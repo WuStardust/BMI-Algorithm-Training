@@ -20,6 +20,10 @@ plot(d(5000+fL:5600+fL,2))
 hold on
 plot(pre(5000:5600,2))
 
+% save results
+WFpredict = [zeros(fL,2); pre];
+save ./data/WFpredict.mat WFpredict
+
 %% Following codes suppose the channels are independent
 % for i=1:1 % suppose neurons are independent
 %     % autocorelation matrix
