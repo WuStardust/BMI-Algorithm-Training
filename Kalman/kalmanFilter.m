@@ -13,7 +13,7 @@ load au_bin@10Hz_1750s.mat
 % [~, index] = sort(maxCC, 'descend');
 % x=x(:,index);
 
-history = 8;
+history = 1;
 x=ensemble(x, history);
 trainN = 10500;
 trainX = x(1:trainN,:);
