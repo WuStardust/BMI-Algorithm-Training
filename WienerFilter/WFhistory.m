@@ -5,14 +5,9 @@ maxCC = zeros(1, 185);
 maxPos = zeros(1, 185);
 for n=1:185
   cc = xcorr(x(1:10500,n), d(1:10500,1), 50);
-  [maxcc, pos] = max(abs(cc));
-  if (pos<51)
-    maxCC(n) = cc(51);
-    maxPos(n) = 0;
-  else
-    maxCC(n) = maxcc;
-    maxPos(n) = pos - 51;
-  end
+  [maxcc, pos] = max(abs(cc(1:51)));
+  maxCC(n) = maxcc;
+  maxPos(n) = 51-pos;
 end
 
 [~, index] = sort(maxCC, 'descend');

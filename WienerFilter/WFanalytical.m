@@ -6,10 +6,9 @@ X = ensemble(x, fL);
 r = X'*X; % autocorelation matrix
 Rzs = X'*d(fL:end,:); % crosscorelation
 % filter impulse response
-hx = r\Rzs(:,1);
-hy = r\Rzs(:,2);
+h = r\Rzs;
 % apply the filter
-pre = X*[hx hy];
+pre = X*h;
 % plot results
 figure('Name', 'X position')
 plot(d(5000+fL:5600+fL,1))
