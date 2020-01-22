@@ -2,14 +2,13 @@ close all;clear;clc;
 fL = 20; % length of the winer filter
 load au_bin@10Hz_1750s.mat
 X = ensemble(x, fL);
-[~, neurons] = size(x); % num of neurons
+% [~, neurons] = size(x); % num of neurons
 r = X'*X; % autocorelation matrix
 Rzs = X'*d(fL:end,:); % crosscorelation
 % filter impulse response
-hx = r\Rzs(:,1);
-hy = r\Rzs(:,2);
+h = r\Rzs;
 % apply the filter
-pre = X*[hx hy];
+pre = X*h;
 % plot results
 figure('Name', 'X position')
 plot(d(5000+fL:5600+fL,1))
