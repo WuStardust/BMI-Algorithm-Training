@@ -46,11 +46,13 @@ plot(testD(580:880,1))
 hold on
 plot(grnnPredict(580:880,1))
 hold off
-title(['gamma ', num2str(gamma), 'MSE: ', num2str(mse(1)), ' CC: ', num2str(cc(2))])
+title(['X position: gamma ', num2str(gamma), 'MSE: ', num2str(mse(1)), ' CC: ', num2str(cc(2))])
+legend("Ground truth", "Prediction")
 subplot(2,1,2)
 plot(testD(580:880,2))
 hold on
 plot(grnnPredict(580:880,2))
 hold off
 cc = corrcoef(testD(:,2), grnnPredict(:,2));
-title(['gamma ', num2str(gamma), 'MSE: ', num2str(mse(4)), ' CC: ', num2str(cc(2))])
+title(['Y position: gamma ', num2str(gamma), 'MSE: ', num2str(mse(4)), ' CC: ', num2str(cc(2))])
+legend("Ground truth", "Prediction")
